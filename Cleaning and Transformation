@@ -1,0 +1,214 @@
+CLEAN AND TRANSFORM DATA
+
+~ Clean and Validate the Data ~
+(clean_names)
+Check for duplicates
+Check for null values
+
+Null values
+
+is.null(daily_activity)
+is.null(daily_calories)
+is.null(daily_intensities)
+is.null(daily_steps)
+is.null(heartrate_seconds)
+is.null(hourly_calories)
+is.null(hourly_intensities)
+is.null(hourly_steps)
+is.null(minute_calories_narrow)
+is.null(minute_calories_wide)
+is.null(minute_intensities_narrow)
+is.null(minute_intensities_wide)
+is.null(minute_METs_Narrow)
+is.null(minute_sleep)
+is.null(minute_steps_narrow)
+is.null(minute_steps_wide)
+is.null(sleep_day)
+is.null(weight_log_info)
+
+is.null(daily_activity)
+[1] FALSE
+> is.null(daily_calories)
+[1] FALSE
+> is.null(daily_intensities)
+[1] FALSE
+> is.null(daily_steps)
+[1] FALSE
+> is.null(heartrate_seconds)
+[1] FALSE
+> is.null(hourly_calories)
+[1] FALSE
+> is.null(hourly_intensities)
+[1] FALSE
+> is.null(hourly_steps)
+[1] FALSE
+> is.null(minute_calories_narrow)
+[1] FALSE
+> is.null(minute_calories_wide)
+[1] FALSE
+> is.null(minute_intensities_narrow)
+[1] FALSE
+> is.null(minute_intensities_wide)
+[1] FALSE
+> is.null(minute_METs_Narrow)
+[1] FALSE
+> is.null(minute_sleep)
+[1] FALSE
+> is.null(minute_steps_narrow)
+[1] FALSE
+> is.null(minute_steps_wide)
+[1] FALSE
+> is.null(sleep_day)
+[1] FALSE
+> is.null(weight_log_info)
+[1] FALSE
+
+
+Duplicates
+
+sum(duplicated(daily_calories))
+sum(duplicated(daily_intensities))
+sum(duplicated(daily_steps)) 
+sum(duplicated(heartrate_seconds)) 
+sum(duplicated(hourly_calories))
+sum(duplicated(hourly_intensities))
+sum(duplicated(hourly_steps))
+sum(duplicated(minute_calories_narrow))
+sum(duplicated(minute_calories_wide))
+sum(duplicated(minute_intensities_narrow))
+sum(duplicated(minute_intensities_wide))
+sum(duplicated(minute_METs_Narrow))
+sum(duplicated(minute_sleep))
+sum(duplicated(minute_steps_narrow))
+sum(duplicated(minute_steps_wide))
+sum(duplicated(sleep_day))
+sum(duplicated(weight_log_info))
+
+> sum(duplicated(daily_calories))
+[1] 0
+> sum(duplicated(daily_intensities))
+[1] 0
+> sum(duplicated(daily_steps)) 
+[1] 0
+> sum(duplicated(heartrate_seconds)) 
+[1] 0
+> sum(duplicated(hourly_calories))
+[1] 0
+> sum(duplicated(hourly_intensities))
+[1] 0
+> sum(duplicated(hourly_steps))
+[1] 0
+> sum(duplicated(minute_calories_narrow))
+[1] 0
+> sum(duplicated(minute_calories_wide))
+[1] 0
+> sum(duplicated(minute_intensities_narrow))
+[1] 0
+> sum(duplicated(minute_intensities_wide))
+[1] 0
+> sum(duplicated(minute_METs_Narrow))
+[1] 0
+> sum(duplicated(minute_sleep))
+[1] 543
+> sum(duplicated(minute_steps_narrow))
+[1] 0
+> sum(duplicated(minute_steps_wide))
+[1] 0
+> sum(duplicated(sleep_day))
+[1] 3
+> sum(duplicated(weight_log_info))
+[1] 0
+
+Duplicates in minute_sleep, sleep_day - Remove Duplicates
+
+unique_sleep_day <- unique(sleep_day)
+
+sum(duplicated(unique_sleep_day))
+sum(duplicated(unique_sleep_day))
+[1] 0
+
+Unique_minute_sleep <- unique(minute_sleep)
+
+sum(duplicated(unique_minute_sleep)
+
+sum(duplicated(unique_minute_sleep))
+[1] 0
+
+
+
+Identify Inconsistencies (Check column length)
+
+length(unique(daily_activity$Id))
+length(unique(daily_calories$Id))
+length(unique(daily_intensities$Id))
+length(unique(daily_steps$Id))
+length(unique(heartrate_seconds$Id))
+length(unique(hourly_calories$Id))
+length(unique(hourly_intensities$Id))
+length(unique(hourly_steps$Id))
+length(unique(minute_calories_narrow$Id))
+length(unique(minute_calories_wide$Id))
+length(unique(minute_intensities_narrow$Id))
+length(unique(minute_intensities_wide$Id))
+length(unique(minute_METs_Narrow$Id))
+length(unique(unique_minute_sleep$Id))
+length(unique(minute_steps_narrow$Id))
+length(unique(minute_steps_wide$Id))
+length(unique(unique_sleep_day$Id))
+length(unique(weight_log_info$Id))
+
+
+length(unique(daily_activity$Id))
+[1] 33
+> length(unique(daily_calories$Id))
+[1] 33
+> length(unique(daily_intensities$Id))
+[1] 33
+> length(unique(daily_steps$Id))
+[1] 33
+> length(unique(heartrate_seconds$Id))
+[1] 14
+> length(unique(hourly_calories$Id))
+[1] 33
+> length(unique(hourly_intensities$Id))
+[1] 33
+> length(unique(hourly_steps$Id))
+[1] 33
+> length(unique(minute_calories_narrow$Id))
+[1] 33
+> length(unique(minute_calories_wide$Id))
+[1] 33
+> length(unique(minute_intensities_narrow$Id))
+[1] 33
+> length(unique(minute_intensities_wide$Id))
+[1] 33
+> length(unique(minute_METs_Narrow$Id))
+[1] 33
+> length(unique(unique_minute_sleep$Id))
+[1] 24
+> length(unique(minute_steps_narrow$Id))
+[1] 33
+> length(unique(minute_steps_wide$Id))
+[1] 33
+> length(unique(unique_sleep_day$Id))
+[1] 24
+> length(unique(weight_log_info$Id))
+[1] 8
+
+
+
+Transform and Merge Data Together
+
+combined_data <- merge(sleep_day, daily_activity, by="Id")
+
+> colnames(combined_data)
+ [1] "Id"                       "SleepDay"                
+ [3] "TotalSleepRecords"        "TotalMinutesAsleep"      
+ [5] "TotalTimeInBed"           "ActivityDate"            
+ [7] "TotalSteps"               "TotalDistance"           
+ [9] "TrackerDistance"          "LoggedActivitiesDistance"
+[11] "VeryActiveDistance"       "ModeratelyActiveDistance"
+[13] "LightActiveDistance"      "SedentaryActiveDistance" 
+[15] "VeryActiveMinutes"        "FairlyActiveMinutes"     
+[17] "LightlyActiveMinutes"     "SedentaryMinutes"        
+[19] "Calories"     

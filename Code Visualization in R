@@ -1,0 +1,38 @@
+Merge daily_calories and daily_activity into cal_activity dataframe
+
+cal_activity <- merge(daily_calories, daily_activity, by="Id")
+> 
+> View(cal_activity)
+> colnames <- cal_activity
+> colnames(cal_activity)
+ [1] "Id"                       "ActivityDay"             
+ [3] "Calories.x"               "ActivityDate"            
+ [5] "TotalSteps"               "TotalDistance"           
+ [7] "TrackerDistance"          "LoggedActivitiesDistance"
+ [9] "VeryActiveDistance"       "ModeratelyActiveDistance"
+[11] "LightActiveDistance"      "SedentaryActiveDistance" 
+[13] "VeryActiveMinutes"        "FairlyActiveMinutes"     
+[15] "LightlyActiveMinutes"     "SedentaryMinutes"        
+[17] "Calories.y"              
+
+
+Now make a visualization plot to see relationship between Calories and Total Steps
+
+
+Then visualize
+
+ggplot(cal_activity) +
+  aes(x=TotalSteps, y=Calories.y) +
+ geom_point()
+
+> ggplot(cal_activity) +
++    aes(x=TotalSteps, y=Calories.y) +
++    geom_point()
+
+
+From dataframe Sleep_Day, compare TotalMinutesAsleep to TotalTimeInBed (no need to merge data frames this time)
+
+ggplot(sleep_day) +
+ aes(x=TotalMinutesAsleep, y=TotalTimeInBed) + geom_point()
+
+

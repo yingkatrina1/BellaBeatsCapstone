@@ -1,0 +1,45 @@
+#Main Code using R
+
+Prepare - Key tasks 
+1. Download data and store it appropriately. 
+2. Identify how it’s organized. 
+3. Sort and filter the data. 
+
+
+STEP 1: IMPORT DATA from csv files
+
+daily_activity <- read.csv(".....Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv", header = TRUE)
+
+daily_calories <- read.csv(".....Fitabase Data 4.12.16-5.12.16/dailyCalories_merged.csv", header = TRUE)
+
+daily_intensities <- read.csv(".....Fitabase Data 4.12.16-5.12.16/dailyIntensities_merged.csv", header = TRUE)
+
+daily_steps <- read.csv(".....Fitabase Data 4.12.16-5.12.16/dailySteps_merged.csv", header = TRUE)
+
+heartrate_seconds <- read.csv(".....Fitabase Data 4.12.16-5.12.16/heartrate_seconds_merged.csv", header = TRUE)
+
+hourly_calories <- read.csv(".....Fitabase Data 4.12.16-5.12.16/hourlyCalories_merged.csv", header = TRUE)
+
+hourly_intensities <- read.csv(".....Fitabase Data 4.12.16-5.12.16/hourlyIntensities_merged.csv", header = TRUE)
+
+hourly_steps <- read.csv(".....Fitabase Data 4.12.16-5.12.16/hourlySteps_merged.csv", header = TRUE)
+
+minute_calories_narrow <- read.csv(.....Fitabase Data 4.12.16-5.12.16/minuteCaloriesNarrow_merged.csv", header = TRUE)
+
+minute_calories_wide <- read.csv(.....Fitabase Data 4.12.16-5.12.16/minuteCaloriesWide_merged.csv", header = TRUE)
+
+minute_intensities_narrow <- read.csv(.....Fitabase Data 4.12.16-5.12.16/minuteIntensitiesNarrow_merged.csv", header = TRUE)
+
+minute_intensities_wide <- read.csv(.....Fitabase Data 4.12.16-5.12.16/minuteIntensitiesWide_merged.csv", header = TRUE)
+
+minute_METs_Narrow <- read.csv(.....Fitabase Data 4.12.16-5.12.16/minuteMETsNarrow_merged.csv", header = TRUE)
+
+minute_sleep <- read.csv(.....Fitabase Data 4.12.16-5.12.16/minuteSleep_merged.csv", header = TRUE)
+
+minute_steps_narrow <- read.csv(.....Fitabase Data 4.12.16-5.12.16/minuteStepsNarrow_merged.csv", header = TRUE)
+
+minute_steps_wide <- read.csv(.....Fitabase Data 4.12.16-5.12.16/minuteStepsWide_merged.csv", header = TRUE)
+
+sleep_day <- read.csv(.....Fitabase Data 4.12.16-5.12.16/sleepDay_merged.csv", header = TRUE)
+
+weight_log_info <- read.csv(.....Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv", header = TRUE)
